@@ -4,8 +4,6 @@ import loginBackGround from '../../assets/svg/loginBackGround.svg';
 import style from './Label.module.scss';
 
 function Label() {
-  console.log(style);
-
   return (
     <div className={style.labelText}>
       <div className={style.labelText} style={{ backgroundImage: `url(${loginBackGround})` }}>
