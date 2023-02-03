@@ -1,15 +1,14 @@
 import React from 'react';
-import LoginBackGround from '../../assets/svg/LoginBackGround';
+import loginBackGround from '../../assets/svg/loginBackGround.svg';
 
-import style from './Label.module.css';
+import style from './Label.module.scss';
 
 function Label() {
   console.log(style);
 
   return (
     <div className={style.labelText}>
-      <LoginBackGround />
-      <div className={style.labelText} style={{ backgroundImage: { LoginBackGround } }}>
+      <div className={style.labelText} style={{ backgroundImage: `url(${loginBackGround})` }}>
         Sign up
       </div>
     </div>

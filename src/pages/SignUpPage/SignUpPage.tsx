@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import Label from '../../components/Label/Label';
 
-import './SignUpPage.module.css';
+import './SignUpPage.module.scss';
 
 function SignUpPage() {
   return (
