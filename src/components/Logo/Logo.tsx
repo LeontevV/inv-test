@@ -1,8 +1,6 @@
 import React from 'react';
 
-import Image from '../../assets/image/semiotech.png';
-
-import './Logo.css';
+import './Logo.scss';
 
 function Logo() {
   return (
