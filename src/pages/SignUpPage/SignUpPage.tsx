@@ -1,12 +1,12 @@
 import React, { memo } from 'react';
-import Label from '../../components/Label/Label';
+import CustomInput from '../../components/CustomInput/CustomInput';
 
 import './SignUpPage.module.scss';
 
 function SignUpPage() {
   return (
     <div className='containerSignUp'>
-      <Label />
+      <CustomInput title='First name' name='name' />
     </div>
   );
 }

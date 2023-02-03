@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import SignUp from './pages/SignUpPage';
 
-import './App.css';
+import './App.scss';
 
 function App() {
   return (
