@@ -1,0 +1,8 @@
+.containerHeader {
+  display: flex;
+  align-self: flex-start;
+}
+.logo {
+  padding-top: 30px;
+  padding-left: 135px;
+}
