@@ -1,9 +1,14 @@
 import React from 'react';
+import { BrowserRouter, Routes } from 'react-router-dom';
+
 import './App.css';
 
 function App() {
-  const count = 1;
-  return <div className='App' />;
+  return (
+    <BrowserRouter>
+      <Routes></Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
