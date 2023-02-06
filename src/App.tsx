@@ -1,12 +1,14 @@
 import React from 'react';
-import { BrowserRouter, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import './App.css';
+import SignUp from './pages/SignUpPage';
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes></Routes>
+      <Routes>
+        <Route path='/' element={<SignUp />} />
+      </Routes>
     </BrowserRouter>
   );
 }
