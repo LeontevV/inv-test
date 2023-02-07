@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, InputHTMLAttributes } from 'react';
 import { ReactComponent as CrossedOutEye } from '../../../assets/svg/crossedOutEye.svg';
 import { ReactComponent as Eye } from '../../../assets/svg/eye.svg';
 
 import style from './Input.module.scss';
 
-type InputProps = {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  type: string;
   title: string;
   name: string;
   value: string;
-  type: string;
-};
+}
 
-function CustomInput({ type, title, name, value }: InputProps) {
-  const [error, setError] = useState();
+function Input({ type, title, name, value }: InputProps) {
+  const [error, setError] = useState(false);
   const [inputType, setInputType] = useState(type);
 
   return (
@@ -21,7 +21,7 @@ function CustomInput({ type, title, name, value }: InputProps) {
         <label className={style.inputTitle}>{title}</label>
         {error && <div className={style.errorText}>Requiered field</div>}
       </div>
-      <div className={error ? style.errorInput : style.iconInput}>
+      <div className={error ? style.errorInput : style.inputElement}>
         <input
           className={style.input}
           type={inputType}
@@ -42,4 +42,4 @@ function CustomInput({ type, title, name, value }: InputProps) {
     </div>
   );
 }
-export default CustomInput;
+export default Input;

@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import CustomInput from '../../components/core/Input/Input';
+import Input from '../../components/core/Input/Input';
 
 import style from './SignUpPage.module.scss';
 
@@ -25,11 +25,11 @@ function SignUpPage() {
   return (
     <div className='containerSignUp'>
       <form onChange={handleChange} className={style.registrationForm}>
-        <CustomInput type='text' title='First name' name='firstName' value={authForm.firstName} />
-        <CustomInput type='text' title='Last name' name='lastName' value={authForm.lastName} />
-        <CustomInput type='email' title='Email' name='email' value={authForm.email} />
-        <CustomInput type='password' title='Password' name='password' value={authForm.password} />
-        <CustomInput
+        <Input type='text' title='First name' name='firstName' value={authForm.firstName} />
+        <Input type='text' title='Last name' name='lastName' value={authForm.lastName} />
+        <Input type='email' title='Email' name='email' value={authForm.email} />
+        <Input type='password' title='Password' name='password' value={authForm.password} />
+        <Input
           type='password'
           title='Confirm password'
           name='confirmPassword'
