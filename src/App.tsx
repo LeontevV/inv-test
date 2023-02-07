@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import SignUp from './pages/SignUpPage';
 
+import './global/styles/font.scss';
+
 function App() {
   return (
     <BrowserRouter>
