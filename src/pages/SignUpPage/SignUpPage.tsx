@@ -5,9 +5,11 @@ import style from './SignUpPage.module.scss';
 
 function SignUpPage() {
   return (
-    <div className='containerSignUp'>
+    <div className={style.containerSignUp}>
       <Label />
-      <button className={style.createAccount}>Create account</button>
+      <button className={style.createAccount}>
+        <div className={style.buttonText}>Create account</div>
+      </button>
     </div>
   );
 }

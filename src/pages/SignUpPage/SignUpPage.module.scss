@@ -1,8 +1,11 @@
 .createAccount {
-  width: 400px;
+  width: 100%;
   height: 46px;
   background: #1565d8;
   border-radius: 10px;
+  border: 0;
+}
+.buttonText {
   font-family: 'Nunito Sans';
   font-style: normal;
   font-weight: 700;
@@ -11,7 +14,6 @@
   text-align: center;
   font-feature-settings: 'liga' off;
   color: #ffffff;
-  border: 0;
 }
 .createAccount:hover {
   background: #1259bf;
