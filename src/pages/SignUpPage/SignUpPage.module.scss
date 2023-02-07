@@ -1,0 +1,23 @@
+.createAccount {
+  width: 400px;
+  height: 46px;
+  background: #1565d8;
+  border-radius: 10px;
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+  font-feature-settings: 'liga' off;
+  color: #ffffff;
+  border: 0;
+}
+.createAccount:hover {
+  background: #1259bf;
+  border: 0;
+}
+.createAccount:active {
+  background: #0b4ba8;
+  border: 0;
+}
