@@ -14,6 +14,10 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 function Input({ type, title, name, value }: InputProps) {
   const [error, setError] = useState(false);
   const [inputType, setInputType] = useState(type);
+  const onBlur = () => {
+    const isValid = value !== '';
+    setError(isValid ? false : true);
+  };
 
   return (
     <div className={style.inputContainer}>
@@ -28,6 +32,7 @@ function Input({ type, title, name, value }: InputProps) {
           placeholder={title}
           name={name}
           value={value}
+          onBlur={() => onBlur()}
         />
         {type === 'password' && (
           <button

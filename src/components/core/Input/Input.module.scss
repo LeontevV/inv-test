@@ -1,9 +1,28 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+}
+.labelContainer {
+  display: flex;
+  justify-content: space-between;
+}
 .inputTitle {
   font-family: 'Nunito Sans';
   font-style: normal;
   line-height: 18px;
   font-feature-settings: 'liga' off;
   color: #778699;
+}
+.errorText {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  text-align: right;
+  font-feature-settings: 'liga' off;
+  color: #eb5757;
 }
 .input {
   outline: none;
@@ -21,11 +40,6 @@
   line-height: 18px;
   font-feature-settings: 'liga' off;
   color: #778699;
-}
-.inputContainer {
-  display: flex;
-  flex-direction: column;
-  padding-top: 20px;
 }
 .inputElement {
   width: 100%;
@@ -50,20 +64,6 @@
     background-color: #e6eefa;
   }
 }
-.labelContainer {
-  display: flex;
-  justify-content: space-between;
-}
-.errorText {
-  font-family: 'Nunito Sans';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 18px;
-  text-align: right;
-  font-feature-settings: 'liga' off;
-  color: #eb5757;
-}
 .errorInput {
   width: 100%;
   display: flex;
@@ -75,8 +75,8 @@
 
 .inputElement:focus-within {
   .input {
-    background-color: white;
+    background-color: transparent;
   }
-  background-color: white;
+  background-color: transparent;
   border: 2px solid #1565d8;
 }
