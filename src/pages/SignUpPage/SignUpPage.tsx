@@ -7,9 +7,6 @@ function SignUpPage() {
   return (
     <div className={style.containerSignUp}>
       <Label />
-      <button className={style.createAccount}>
-        <div className={style.buttonText}>Create account</div>
-      </button>
     </div>
   );
 }
