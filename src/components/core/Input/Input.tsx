@@ -9,59 +9,57 @@ import style from './Input.module.scss';
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   value: string;
   title: string;
-  errorConfirm?: boolean;
+  errorMessage?: string;
 }
 
-function Input({ type, title, name, value, errorConfirm }: InputProps) {
-  const [errorType, setErrorType] = useState('');
-  const [error, setError] = useState(false);
+function validate({ value, type, name }: { value: string; type?: string; name?: string }): string {
+  if (name === 'name' || name === 'firstName' || name === 'lastName') {
+    const isValid = validateName(value);
+    return isValid ? '' : 'Not correct name';
+  }
+
+  switch (type) {
+    case 'password': {
+      const isValid = validatePassword(value);
+      return isValid ? '' : 'Not correct password';
+    }
+    case 'email': {
+      const isValid = validateEmail(value);
+      return isValid ? '' : 'Not correct email';
+    }
+  }
+
+  return '';
+}
+
+function Input({ type, onChange, title, name, value, errorMessage = '' }: InputProps) {
+  const [error, setError] = useState(errorMessage);
   const [inputType, setInputType] = useState(type);
 
   const onBlur = () => {
-    const isValid = value !== '';
-    setErrorType('Requiered field');
-    setError(!isValid);
-    const isValidPassword = validatePassword(value);
-    const isValidEmail = validateEmail(value);
-    const isValidText = validateName(value);
-    switch (type) {
-      case 'password':
-        if (!isValidPassword) {
-          setErrorType('Not correct password');
-          setError(!isValidPassword);
-        }
-        break;
-      case 'email':
-        if (!isValidEmail) {
-          setErrorType('Not correct email');
-          setError(!isValidEmail);
-        }
-        break;
-      case 'text':
-        if (!isValidText) {
-          setErrorType('Not correct name');
-          setError(!isValidText);
-        }
-        break;
+    if (value === '') {
+      setError('Requiered field');
+      return;
     }
-    if (name === 'confirmPassword') {
-      if (!errorConfirm) {
-        setErrorType('Password not coincidens');
-        setError(true);
-      }
-    }
+    const em = validate({ value, type, name });
+    setError(em);
   };
 
   return (
     <div className={style.inputContainer}>
       <div className={style.labelContainer}>
         <label className={style.inputTitle}>{title}</label>
-        {error && <div className={style.errorText}>{errorType}</div>}
+        {(error || errorMessage) && <div className={style.errorText}>{errorMessage || error}</div>}
       </div>
       <div
-        className={error ? classNames(style.inputElement, style.errorInput) : style.inputElement}
+        className={classNames({
+          [style.inputElement]: true,
+          [style.errorInput]: error,
+        })}
       >
         <input
+          maxLength={16}
+          onChange={onChange}
           id={name}
           className={style.input}
           type={inputType}

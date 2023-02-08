@@ -22,7 +22,7 @@ function SignUpPage() {
     };
     setAuthForm(updatedForm);
   };
-  const errorConfirm = authForm.password === authForm.confirmPassword;
+
   return (
     <div className='containerSignUp'>
       <form onChange={handleChange} className={style.registrationForm}>
@@ -35,7 +35,9 @@ function SignUpPage() {
           title='Confirm password'
           name='confirmPassword'
           value={authForm.confirmPassword}
-          errorConfirm={errorConfirm}
+          errorMessage={
+            authForm.password === authForm.confirmPassword ? '' : "Password doesn't match"
+          }
         />
       </form>
     </div>
