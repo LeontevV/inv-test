@@ -1,6 +1,9 @@
 
-import React, { memo, useState } from 'react';
-import Input from '../../components/core/Input/Input';
+import React, { memo } from 'react';
+import Button from '../../components/core/Button/Button';
+import Label from '../../components/Label/Label';
+import LinkBlock from '../../components/LinkButton/LinkButton';
+
 
 import style from './SignUpPage.module.scss';
 
@@ -26,6 +29,7 @@ function SignUpPage() {
   };
 
   return (
+
     <div className='containerSignUp'>
       <form onChange={handleChange} className={style.registrationForm}>
         <Input type='text' title='First name' name='firstName' value={authForm.firstName} />
