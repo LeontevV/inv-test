@@ -22,6 +22,8 @@ function SignUpPage() {
     };
     setAuthForm(updatedForm);
   };
+  const isPasswordCoincidens = authForm.password === authForm.confirmPassword;
+  console.log('isPasswordCoincidens', isPasswordCoincidens);
   return (
     <div className='containerSignUp'>
       <form onChange={handleChange} className={style.registrationForm}>
@@ -34,6 +36,7 @@ function SignUpPage() {
           title='Confirm password'
           name='confirmPassword'
           value={authForm.confirmPassword}
+          isPasswordCoincidens={isPasswordCoincidens}
         />
       </form>
     </div>

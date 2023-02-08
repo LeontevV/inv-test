@@ -9,36 +9,22 @@
 }
 .inputTitle {
   font-family: 'Nunito Sans';
-  font-style: normal;
   line-height: 18px;
-  font-feature-settings: 'liga' off;
   color: #778699;
 }
 .errorText {
   font-family: 'Nunito Sans';
-  font-style: normal;
-  font-weight: 400;
   font-size: 13px;
-  line-height: 18px;
-  text-align: right;
-  font-feature-settings: 'liga' off;
   color: #eb5757;
 }
 .input {
-  outline: none;
   width: 100%;
   border: 1px transparent;
   border-radius: 10px;
-  padding-left: 15px;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding: 12px 15px 12px 15px;
   color: #778699;
   font-family: 'Nunito Sans';
-  font-style: normal;
-  font-weight: 400;
   font-size: 13px;
-  line-height: 18px;
-  font-feature-settings: 'liga' off;
   color: #778699;
 }
 .inputElement {
@@ -48,6 +34,9 @@
   align-items: center;
   border: 2px solid #dce1e7;
   border-radius: 10px;
+}
+.errorInput {
+  border: 2px solid #eb5757;
 }
 .buttonEye {
   appearance: none;
@@ -63,14 +52,6 @@
   .input {
     background-color: #e6eefa;
   }
-}
-.errorInput {
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  border: 1px solid #eb5757;
-  border-radius: 10px;
 }
 
 .inputElement:focus-within {
