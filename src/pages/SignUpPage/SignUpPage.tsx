@@ -1,3 +1,4 @@
+
 import React, { memo, useState } from 'react';
 import Input from '../../components/core/Input/Input';
 
@@ -10,6 +11,7 @@ const INITIAL_STATE = {
   password: '',
   confirmPassword: '',
 };
+
 
 function SignUpPage() {
   const [authForm, setAuthForm] = useState(INITIAL_STATE);
@@ -40,6 +42,7 @@ function SignUpPage() {
           }
         />
       </form>
+
     </div>
   );
 }
