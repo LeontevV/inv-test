@@ -9,40 +9,43 @@ import style from './Input.module.scss';
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   value: string;
   title: string;
-  isPasswordCoincidens?: boolean;
+  errorConfirm?: boolean;
 }
 
-function Input({ type, title, name, value, isPasswordCoincidens }: InputProps) {
+function Input({ type, title, name, value, errorConfirm }: InputProps) {
   const [errorType, setErrorType] = useState('');
   const [error, setError] = useState(false);
   const [inputType, setInputType] = useState(type);
+
   const onBlur = () => {
     const isValid = value !== '';
     setErrorType('Requiered field');
     setError(!isValid);
-    if (name === 'password') {
-      const isValidPassword = validatePassword(value);
-      if (!isValidPassword) {
-        setErrorType('Not correct password');
-        setError(!isValidPassword);
-      }
-    }
-    if (type === 'email') {
-      const isValidEmail = validateEmail(value);
-      if (!isValidEmail) {
-        setErrorType('Not correct email');
-        setError(!isValidEmail);
-      }
-    }
-    if (type === 'text') {
-      const isValidText = validateName(value);
-      if (!isValidText) {
-        setErrorType('Not correct name');
-        setError(!isValidText);
-      }
+    const isValidPassword = validatePassword(value);
+    const isValidEmail = validateEmail(value);
+    const isValidText = validateName(value);
+    switch (type) {
+      case 'password':
+        if (!isValidPassword) {
+          setErrorType('Not correct password');
+          setError(!isValidPassword);
+        }
+        break;
+      case 'email':
+        if (!isValidEmail) {
+          setErrorType('Not correct email');
+          setError(!isValidEmail);
+        }
+        break;
+      case 'text':
+        if (!isValidText) {
+          setErrorType('Not correct name');
+          setError(!isValidText);
+        }
+        break;
     }
     if (name === 'confirmPassword') {
-      if (!isPasswordCoincidens) {
+      if (!errorConfirm) {
         setErrorType('Password not coincidens');
         setError(true);
       }
