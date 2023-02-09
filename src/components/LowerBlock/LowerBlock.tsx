@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import style from './LowerBlock.module.scss';
 
@@ -8,12 +9,12 @@ function LowerBlock() {
   return (
     <div className={style.container}>
       <div className={style.text}>© {year} Semiotech.</div>
-      <a className={style.text} href='http://'>
+      <Link className={style.text} to={"http://'"}>
         Terms,
-      </a>
-      <a className={style.text} href='http://'>
+      </Link>
+      <Link className={style.text} to={"http://'"}>
         Privacy
-      </a>
+      </Link>
     </div>
   );
 }
