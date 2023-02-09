@@ -1,13 +1,13 @@
 import React, { memo, useState } from 'react';
-
 import Input from '../../components/core/Input/Input';
 import Button from '../../components/core/Button/Button';
 import Label from '../../components/Label/Label';
 import LinkBlock from '../../components/LinkButton/LinkButton';
-import { ReactComponent as Elipsis } from '../../assets/svg/elipsis.svg';
 
+import { ReactComponent as Elipsis } from '../../assets/svg/elipsis.svg';
 import style from './SignUpPage.module.scss';
 import Logo from '../../components/Logo/Logo';
+import LowerBlock from '../../components/LowerBlock/LowerBlock';
 
 const QUESTION = 'Alredy have an Account?';
 const INITIAL_STATE = {
@@ -49,8 +49,10 @@ function SignUpPage() {
           }
         />
       </form>
+
       <Button title='create account' />
       <LinkBlock title='Login' question={QUESTION} href='/' />
+
       <Elipsis />
     </div>
   );
