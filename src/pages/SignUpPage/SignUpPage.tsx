@@ -5,7 +5,7 @@ import Label from '../../components/Label/Label';
 import LinkBlock from '../../components/LinkButton/LinkButton';
 
 import style from './SignUpPage.module.scss';
-import LowerBlock from '../../components/AllRightsReserved/AllRightsReserved';
+import LowerBlock from '../../components/LowerBlock/LowerBlock';
 
 const INITIAL_STATE = {
   firstName: '',

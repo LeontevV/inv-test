@@ -1,6 +1,6 @@
 import React from 'react';
 
-import style from './AllRightsReserved.module.scss';
+import style from './LowerBlock.module.scss';
 
 function LowerBlock() {
   const data = new Date();
