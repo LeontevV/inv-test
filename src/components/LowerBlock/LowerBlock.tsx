@@ -9,10 +9,10 @@ function LowerBlock() {
   return (
     <div className={style.container}>
       <div className={style.text}>© {year} Semiotech.</div>
-      <Link className={style.text} to={"http://'"}>
-        Terms,
+      <Link className={style.text} to={'/'}>
+        Terms
       </Link>
-      <Link className={style.text} to={"http://'"}>
+      <Link className={style.text} to={'/'}>
         Privacy
       </Link>
     </div>
