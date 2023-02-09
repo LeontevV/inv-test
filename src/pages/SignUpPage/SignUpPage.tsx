@@ -7,7 +7,9 @@ import LinkBlock from '../../components/LinkButton/LinkButton';
 import { ReactComponent as Elipsis } from '../../assets/svg/elipsis.svg';
 
 import style from './SignUpPage.module.scss';
+import Logo from '../../components/Logo/Logo';
 
+const QUESTION = 'Alredy have an Account?';
 const INITIAL_STATE = {
   firstName: '',
   lastName: '',
@@ -30,6 +32,8 @@ function SignUpPage() {
 
   return (
     <div className='containerSignUp'>
+      <Logo />
+      <Label />
       <form onChange={handleChange} className={style.registrationForm}>
         <Input type='text' title='First name' name='firstName' value={authForm.firstName} />
         <Input type='text' title='Last name' name='lastName' value={authForm.lastName} />
@@ -45,6 +49,8 @@ function SignUpPage() {
           }
         />
       </form>
+      <Button title='create account' />
+      <LinkBlock title='Login' question={QUESTION} href='/' />
       <Elipsis />
     </div>
   );
