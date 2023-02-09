@@ -1,8 +1,11 @@
 import React, { memo, useState } from 'react';
 import Input from '../../components/core/Input/Input';
+
 import Button from '../../components/core/Button/Button';
 import Label from '../../components/Label/Label';
 import LinkBlock from '../../components/LinkButton/LinkButton';
+
+import { ReactComponent as Elipsis } from '../../assets/svg/elipsis.svg';
 
 import style from './SignUpPage.module.scss';
 import LowerBlock from '../../components/LowerBlock/LowerBlock';
@@ -44,7 +47,10 @@ function SignUpPage() {
           }
         />
       </form>
+
       <LowerBlock />
+
+      <Elipsis />
     </div>
   );
 }
