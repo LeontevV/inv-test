@@ -5,7 +5,7 @@ import Label from '../../components/Label/Label';
 import LinkBlock from '../../components/LinkButton/LinkButton';
 
 import style from './SignUpPage.module.scss';
-import AllRightsReserved from '../../components/AllRightsReserved/AllRightsReserved';
+import LowerBlock from '../../components/AllRightsReserved/AllRightsReserved';
 
 const INITIAL_STATE = {
   firstName: '',
@@ -44,7 +44,7 @@ function SignUpPage() {
           }
         />
       </form>
-      <AllRightsReserved />
+      <LowerBlock />
     </div>
   );
 }
