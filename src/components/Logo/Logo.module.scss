@@ -1,11 +1,12 @@
 .containerHeader {
   display: flex;
   align-self: flex-start;
+  justify-content: start;
 }
 .logo {
   padding-top: 30px;
   padding-left: 135px;
-  font-family: 'Work Sans';
+  font-family: 'Work Sans700';
   font-style: normal;
   font-weight: 700;
   font-size: 20px;

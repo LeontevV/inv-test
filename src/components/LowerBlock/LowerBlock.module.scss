@@ -1,5 +1,5 @@
 .container {
-  width: 100%;
+  width: 400px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -9,6 +9,7 @@
   line-height: 16px;
   color: #778699;
   text-decoration: none;
+  padding-top: 110px;
 }
 .text {
   font-family: 'Nunito Sans';
@@ -17,4 +18,9 @@
   line-height: 16px;
   color: #778699;
   text-decoration: none;
+}
+.linkBlock {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
 }

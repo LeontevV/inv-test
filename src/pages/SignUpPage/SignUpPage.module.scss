@@ -1,3 +1,22 @@
+.containerSignUp {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .registrationForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 400px;
+  padding-top: 47px;
+}
+.elipsis {
+  display: flex;
+  position: absolute;
+  align-self: flex-end;
+  width: 226.02px;
+  height: 226.02px;
+  right: 62.29px;
+  bottom: 57.15px;
 }

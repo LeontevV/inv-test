@@ -31,10 +31,10 @@ function SignUpPage() {
   };
 
   return (
-    <div className='containerSignUp'>
+    <div className={style.containerSignUp}>
       <Logo />
-      <Label />
       <form onChange={handleChange} className={style.registrationForm}>
+        <Label />
         <Input type='text' title='First name' name='firstName' value={authForm.firstName} />
         <Input type='text' title='Last name' name='lastName' value={authForm.lastName} />
         <Input type='email' title='Email' name='email' value={authForm.email} />
@@ -48,12 +48,13 @@ function SignUpPage() {
             authForm.password === authForm.confirmPassword ? '' : "Password doesn't match"
           }
         />
+        <Button title='Create account' />
+        <LinkBlock title='Login' question={QUESTION} href='/' />
       </form>
 
-      <Button title='create account' />
-      <LinkBlock title='Login' question={QUESTION} href='/' />
+      <Elipsis className={style.elipsis} />
 
-      <Elipsis />
+      <LowerBlock />
     </div>
   );
 }

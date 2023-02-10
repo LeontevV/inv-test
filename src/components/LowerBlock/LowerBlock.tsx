@@ -9,12 +9,14 @@ function LowerBlock() {
   return (
     <div className={style.container}>
       <div className={style.text}>© {year} Semiotech.</div>
-      <Link className={style.text} to='/'>
-        Terms
-      </Link>
-      <Link className={style.text} to='/'>
-        Privacy
-      </Link>
+      <div className={style.linkBlock}>
+        <Link className={style.text} to='/'>
+          Terms
+        </Link>
+        <Link className={style.text} to='/'>
+          Privacy
+        </Link>
+      </div>
     </div>
   );
 }
