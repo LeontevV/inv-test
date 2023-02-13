@@ -1,16 +1,13 @@
 .labelText {
-  justify-self: center;
-  font-family: 'Nunito Sans Black';
-  font-weight: 900;
-  font-size: 55px;
-  line-height: 62px;
-  color: #1d1d1d;
-}
-.labelContainer {
   display: flex;
   justify-content: center;
   align-self: center;
-  width: 239px;
+  width: 100%;
   background-image: url(../../assets//svg/loginBackGround.svg);
   background-repeat: no-repeat;
+  background-position: center;
+  font-family: 'Nunito Sans Black';
+  font-size: 55px;
+  line-height: 62px;
+  color: #1d1d1d;
 }

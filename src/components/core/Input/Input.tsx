@@ -15,16 +15,19 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 function validate({ value, type, name }: { value: string; type?: string; name?: string }): string {
   if (name === 'name' || name === 'firstName' || name === 'lastName') {
     const isValid = validateName(value);
+
     return isValid ? '' : 'Not correct name';
   }
 
   switch (type) {
     case 'password': {
       const isValid = validatePassword(value);
+
       return isValid ? '' : 'Not correct password';
     }
     case 'email': {
       const isValid = validateEmail(value);
+
       return isValid ? '' : 'Not correct email';
     }
   }
@@ -39,6 +42,7 @@ function Input({ type, onChange, title, name, value, errorMessage = '' }: InputP
   const onBlur = () => {
     if (value === '') {
       setError('Requiered field');
+
       return;
     }
     const em = validate({ value, type, name });
