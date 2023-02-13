@@ -1,9 +1,11 @@
 .containerLinkBlock {
   display: flex;
+  justify-content: center;
   flex-direction: row;
-  font-family: 'Nunito Sans';
+  font-family: 'Nunito Sans Bold';
   font-weight: 700;
   font-size: 14px;
   line-height: 19px;
   color: #1565d8;
+  padding-top: 22px;
 }

@@ -1,11 +1,11 @@
 import React from 'react';
 
-import './Logo.scss';
+import style from './Logo.module.scss';
 
 function Logo() {
   return (
-    <div className='containerHeader'>
-      <div className='logo'>SEMIOTECH</div>
+    <div className={style.containerLogo}>
+      <div className={style.logo}>SEMIOTECH</div>
       <div />
     </div>
   );
