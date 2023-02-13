@@ -7,7 +7,7 @@ import LinkBlock from '../../components/LinkButton/LinkButton';
 import { ReactComponent as Elipsis } from '../../assets/svg/elipsis.svg';
 import style from './SignUpPage.module.scss';
 import Logo from '../../components/Logo/Logo';
-import LowerBlock from '../../components/LowerBlock/LowerBlock';
+import Footer from '../../components/Auth/Footer/Footer';
 
 const QUESTION = 'Alredy have an Account?';
 const INITIAL_STATE = {
@@ -32,29 +32,29 @@ function SignUpPage() {
 
   return (
     <div className={style.containerSignUp}>
-      <Logo />
-      <form onChange={handleChange} className={style.registrationForm}>
-        <Label />
-        <Input type='text' title='First name' name='firstName' value={authForm.firstName} />
-        <Input type='text' title='Last name' name='lastName' value={authForm.lastName} />
-        <Input type='email' title='Email' name='email' value={authForm.email} />
-        <Input type='password' title='Password' name='password' value={authForm.password} />
-        <Input
-          type='password'
-          title='Confirm password'
-          name='confirmPassword'
-          value={authForm.confirmPassword}
-          errorMessage={
-            authForm.password === authForm.confirmPassword ? '' : "Password doesn't match"
-          }
-        />
-        <Button title='Create account' />
-        <LinkBlock title='Login' question={QUESTION} href='/' />
-      </form>
-
-      <Elipsis className={style.elipsis} />
-
-      <LowerBlock />
+      <div className={style.mainBlock}>
+        <Logo />
+        <form onChange={handleChange} className={style.registrationForm}>
+          <Label />
+          <Input type='text' title='First name' name='firstName' value={authForm.firstName} />
+          <Input type='text' title='Last name' name='lastName' value={authForm.lastName} />
+          <Input type='email' title='Email' name='email' value={authForm.email} />
+          <Input type='password' title='Password' name='password' value={authForm.password} />
+          <Input
+            type='password'
+            title='Confirm password'
+            name='confirmPassword'
+            value={authForm.confirmPassword}
+            errorMessage={
+              authForm.password === authForm.confirmPassword ? '' : "Password doesn't match"
+            }
+          />
+          <Button>Create account</Button>
+          <LinkBlock title='Login' question={QUESTION} href='/' />
+          <Elipsis className={style.elipsis} />
+        </form>
+      </div>
+      <Footer />
     </div>
   );
 }

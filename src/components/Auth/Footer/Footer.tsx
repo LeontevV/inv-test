@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import style from './LowerBlock.module.scss';
+import style from './Footer.module.scss';
 
-function LowerBlock() {
+function Footer() {
   const data = new Date();
   const year = data.getFullYear();
   return (
@@ -20,4 +20,4 @@ function LowerBlock() {
     </div>
   );
 }
-export default LowerBlock;
+export default Footer;

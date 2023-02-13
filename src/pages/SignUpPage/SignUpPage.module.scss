@@ -1,8 +1,10 @@
 .containerSignUp {
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 }
 .registrationForm {
   display: flex;
@@ -19,4 +21,10 @@
   height: 226.02px;
   right: 62.29px;
   bottom: 57.15px;
+}
+.mainBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
