@@ -32,8 +32,8 @@ function SignUpPage() {
 
   return (
     <div className={style.containerSignUp}>
-      <div className={style.mainBlock}>
-        <Logo />
+      <Logo />
+      <div className={style.box}>
         <form onChange={handleChange} className={style.registrationForm}>
           <Label />
           <Input type='text' title='First name' name='firstName' value={authForm.firstName} />
@@ -53,8 +53,8 @@ function SignUpPage() {
           <LinkBlock title='Login' question={QUESTION} href='/' />
           <Elipsis className={style.elipsis} />
         </form>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 }
