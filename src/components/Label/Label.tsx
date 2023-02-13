@@ -2,7 +2,11 @@ import React from 'react';
 
 import style from './Label.module.scss';
 
-function Label() {
-  return <div className={style.labelText}>Sign up</div>;
+type LabelProps = {
+  title: string;
+};
+
+function Label({ title }: LabelProps) {
+  return <div className={style.labelText}>{title}</div>;
 }
 export default Label;

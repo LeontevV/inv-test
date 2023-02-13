@@ -31,11 +31,11 @@ function SignUpPage() {
   };
 
   return (
-    <div className={style.containerSignUp}>
+    <div className={style.containerAuth}>
       <Logo />
       <div className={style.box}>
-        <form onChange={handleChange} className={style.registrationForm}>
-          <Label />
+        <form onChange={handleChange} className={style.authForm}>
+          <Label title='Sign up' />
           <Input type='text' title='First name' name='firstName' value={authForm.firstName} />
           <Input type='text' title='Last name' name='lastName' value={authForm.lastName} />
           <Input type='email' title='Email' name='email' value={authForm.email} />
@@ -50,7 +50,7 @@ function SignUpPage() {
             }
           />
           <Button>Create account</Button>
-          <LinkBlock title='Login' question={QUESTION} href='/' />
+          <LinkBlock title='Login' question={QUESTION} href='/login' />
           <Elipsis className={style.elipsis} />
         </form>
         <Footer />

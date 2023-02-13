@@ -6,7 +6,7 @@ import { validateEmail, validateName, validatePassword } from '../../../utils/va
 
 import style from './Input.module.scss';
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   value: string;
   title: string;
   errorMessage?: string;
