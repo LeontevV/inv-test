@@ -18,8 +18,6 @@ function Login() {
   const [authForm, setAuthForm] = useState(INITIAL_STATE);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('event', event);
-
     const { name, value } = event.target;
     const updatedForm = {
       ...authForm,
