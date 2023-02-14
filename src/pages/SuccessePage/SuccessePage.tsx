@@ -1,5 +1,4 @@
 import React, { memo, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
 import AuthPageWrapper from '../../components/Auth/AuthPageWrapper';
@@ -11,7 +10,6 @@ const TWO_MINUTES = 120;
 function SuccessPage() {
   const [seconds, setSeconds] = useState(TWO_MINUTES);
   const [timerActive, setTimerActive] = useState(false);
-  console.log('timer', timerActive);
 
   const onClick = () => {
     setSeconds(TWO_MINUTES);
@@ -25,10 +23,6 @@ function SuccessPage() {
       setTimerActive(false);
     }
   }, [seconds, timerActive]);
-
-  const timerElement = timerActive ? (
-    <div className={style.timer}>Try again after: {seconds} seconds</div>
-  ) : null;
 
   return (
     <AuthPageWrapper title='Success'>
@@ -47,7 +41,7 @@ function SuccessPage() {
       >
         Resend verification email
       </button>
-      {timerElement}
+      {timerActive && <div className={style.timer}>Try again after: {seconds} seconds</div>}
       <text className={style.text}>
         Thank you for signing up! Whether you&apos;re ready to streamline invalidity contentions or
         just want to check out the demo, we&apos;re happy to help in any way we can. Please

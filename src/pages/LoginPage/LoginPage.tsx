@@ -17,7 +17,7 @@ const INITIAL_STATE = {
 function Login() {
   const [authForm, setAuthForm] = useState(INITIAL_STATE);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLFormElement>) => {
     const { name, value } = event.target;
     const updatedForm = {
       ...authForm,
@@ -27,7 +27,8 @@ function Login() {
   };
 
   return (
-    <AuthPageWrapper onChange={handleChange} title='Login'>
+    <AuthPageWrapper title='Login'>
+      <form onChange={handleChange}></form>
       <Input type='email' title='Email' name='email' value={authForm.email} />
       <Input type='password' title='Password' name='password' value={authForm.password} />
       <Link className={style.link} to='/'>
