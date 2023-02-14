@@ -1,0 +1,25 @@
+.text {
+  font-family: 'Nunito Sans';
+  font-size: 13px;
+  line-height: 18px;
+  text-align: center;
+  color: #333333;
+  padding-top: 20px;
+}
+.link {
+  font-family: 'Nunito Sans Bold';
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+  text-decoration-line: underline;
+  color: #1565d8;
+  padding-top: 20px;
+}
+.timer {
+  display: flex;
+  justify-content: center;
+}
+.disable {
+  pointer-events: none;
+  color: silver;
+}

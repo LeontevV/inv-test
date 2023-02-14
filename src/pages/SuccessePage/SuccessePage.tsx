@@ -1,34 +1,57 @@
-import React, { memo } from 'react';
-
-import { ReactComponent as Elipsis } from '../../assets/svg/elipsis.svg';
-import Label from '../../components/Label/Label';
-import Logo from '../../components/Logo/Logo';
+import React, { memo, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Footer from '../../components/Auth/Footer/Footer';
+import classNames from 'classnames';
+
+import AuthPageWrapper from '../../components/Auth/AuthPageWrapper';
 
 import style from './SuccessPage.module.scss';
 
 function SuccessPage() {
-  return (
-    <div className={style.container}>
-      <Logo />
-      <div className={style.box}>
-        <Label />
-        <text>
-          To complete your registration and get started, you&apos;ll need to verify your email by
-          clicking the link in the email we just sent you.
-        </text>
-        <Link to='/'>Resend verification email</Link>
-        <text>
-          Thank you for signing up! Whether you&apos;re ready to streamline invalidity contentions
-          or just want to check out the demo, we&apos;re happy to help in any way we can. Please
-          don&apos;t hesitate to get in touch.
-        </text>
-        <Elipsis className={style.elipsis} />
+  const [seconds, setSeconds] = useState(120);
+  const [timerActive, setTimerActive] = useState(false);
 
-        <Footer />
-      </div>
-    </div>
+  const onClick = () => {
+    setSeconds(120);
+    setTimerActive(true);
+  };
+
+  useEffect(() => {
+    if (seconds > 0 && timerActive) {
+      setTimeout(setSeconds, 1000, seconds - 1);
+    } else {
+      setTimerActive(false);
+    }
+  }, [seconds, timerActive]);
+
+  const timerElement = timerActive ? (
+    <div className={style.timer}>Try again after: {seconds} seconds</div>
+  ) : (
+    <div></div>
+  );
+
+  return (
+    <AuthPageWrapper title='Success'>
+      <text className={style.text}>
+        To complete your registration and get started, you&apos;ll need to verify your email by
+        clicking the link in the email we just sent you.
+      </text>
+      <Link
+        onClick={onClick}
+        className={classNames({
+          [style.link]: true,
+          [style.disable]: timerActive,
+        })}
+        to=''
+      >
+        Resend verification email
+      </Link>
+      {timerElement}
+      <text className={style.text}>
+        Thank you for signing up! Whether you&apos;re ready to streamline invalidity contentions or
+        just want to check out the demo, we&apos;re happy to help in any way we can. Please
+        don&apos;t hesitate to get in touch.
+      </text>
+    </AuthPageWrapper>
   );
 }
 
