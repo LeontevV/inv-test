@@ -17,12 +17,8 @@ const INITIAL_STATE = {
 function SignUpPage() {
   const [authForm, setAuthForm] = useState(INITIAL_STATE);
 
-  const handleChange = (event: React.SyntheticEvent) => {
-    const target = event.target as typeof event.target & {
-      name: string;
-      value: string;
-    };
-    const { name, value } = target;
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
     const updatedForm = {
       ...authForm,
       [name]: value,
