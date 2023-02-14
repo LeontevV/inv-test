@@ -1,0 +1,35 @@
+.containerAuth {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.authForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 47px;
+}
+.elipsis {
+  display: flex;
+  position: absolute;
+  align-self: flex-end;
+  width: 226px;
+  height: 226px;
+  right: 62px;
+  bottom: 57px;
+}
+.mainBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.box {
+  width: 400px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

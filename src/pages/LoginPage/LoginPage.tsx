@@ -8,6 +8,7 @@ import Logo from '../../components/Logo/Logo';
 import { ReactComponent as Elipsis } from '../../assets/svg/elipsis.svg';
 
 import style from './LoginPage.module.scss';
+import AuthPageWrapper from '../../components/Auth/AuthPageWrapper/AuthPageWrapper';
 
 const QUESTION = "Don't have an account?";
 const INITIAL_STATE = {
@@ -32,21 +33,14 @@ function Login() {
   };
 
   return (
-    <div className={style.containerAuth}>
-      <Logo />
-      <div className={style.box}>
-        <form onChange={handleChange} className={style.authForm}>
-          <Label title='Login' />
-          <Input type='email' title='Email' name='email' value={authForm.email} />
-          <Input type='password' title='Password' name='password' value={authForm.password} />
-
-          <Button>Login</Button>
-          <LinkBlock title='Sign up' question={QUESTION} href='/' />
-          <Elipsis className={style.elipsis} />
-        </form>
-        <Footer />
-      </div>
-    </div>
+    <AuthPageWrapper onChange={handleChange} title='Login'>
+      <>
+        <Input type='email' title='Email' name='email' value={authForm.email} />
+        <Input type='password' title='Password' name='password' value={authForm.password} />
+        <Button>Login</Button>
+        <LinkBlock title='Sign up' question={QUESTION} href='/' />
+      </>
+    </AuthPageWrapper>
   );
 }
 
