@@ -1,14 +1,12 @@
 import React, { memo, useState } from 'react';
-import Footer from '../../components/Auth/Footer/Footer';
+
 import Button from '../../components/core/Button/Button';
 import Input from '../../components/core/Input/Input';
-import Label from '../../components/Label/Label';
 import LinkBlock from '../../components/LinkButton/LinkButton';
-import Logo from '../../components/Logo/Logo';
-import { ReactComponent as Elipsis } from '../../assets/svg/elipsis.svg';
+import AuthPageWrapper from '../../components/Auth/AuthPageWrapper/AuthPageWrapper';
+import { Link } from 'react-router-dom';
 
 import style from './LoginPage.module.scss';
-import AuthPageWrapper from '../../components/Auth/AuthPageWrapper/AuthPageWrapper';
 
 const QUESTION = "Don't have an account?";
 const INITIAL_STATE = {
@@ -37,6 +35,9 @@ function Login() {
       <>
         <Input type='email' title='Email' name='email' value={authForm.email} />
         <Input type='password' title='Password' name='password' value={authForm.password} />
+        <Link className={style.link} to='/'>
+          Forgot password
+        </Link>
         <Button>Login</Button>
         <LinkBlock title='Sign up' question={QUESTION} href='/' />
       </>

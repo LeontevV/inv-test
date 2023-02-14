@@ -1,8 +1,8 @@
 import React, { memo, useState } from 'react';
+
 import Input from '../../components/core/Input/Input';
 import Button from '../../components/core/Button/Button';
 import LinkBlock from '../../components/LinkButton/LinkButton';
-
 import AuthPageWrapper from '../../components/Auth/AuthPageWrapper/AuthPageWrapper';
 
 const QUESTION = 'Alredy have an Account?';
