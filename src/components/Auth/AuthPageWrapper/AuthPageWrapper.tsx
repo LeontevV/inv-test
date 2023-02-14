@@ -8,19 +8,18 @@ import style from './AuthPageWrapper.module.scss';
 
 type AuthPageWrapperProps = {
   title: string;
-  children: Array<JSX.Element>;
-  onChange(event: React.SyntheticEvent): void;
+  children: Array<React.ReactNode>;
 };
 
-function AuthPageWrapper({ title, onChange, children }: AuthPageWrapperProps) {
+function AuthPageWrapper({ title, children }: AuthPageWrapperProps) {
   return (
     <div className={style.containerAuth}>
       <Logo />
       <div className={style.box}>
-        <form onChange={onChange} className={style.authForm}>
+        <div className={style.authBox}>
           <Label title={title} />
           {children}
-        </form>
+        </div>
         <Elipsis className={style.elipsis} />
         <Footer />
       </div>

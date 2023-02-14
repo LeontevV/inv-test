@@ -4,7 +4,7 @@ import style from './LinkBlock.module.scss';
 
 interface LinkBlockProps {
   title: string;
-  question: string;
+  question?: string;
   href: string;
 }
 
