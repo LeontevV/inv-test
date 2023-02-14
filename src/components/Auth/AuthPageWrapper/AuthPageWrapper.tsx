@@ -1,17 +1,18 @@
 import React from 'react';
-import Label from '../../Label/Label';
-import Logo from '../../Logo/Logo';
+import Label from '../../Label';
+import Logo from '../../Logo';
 import { ReactComponent as Elipsis } from '../../../assets/svg/elipsis.svg';
+import Footer from '../Footer';
 
 import style from './AuthPageWrapper.module.scss';
-import Footer from '../Footer/Footer';
+
 type AuthPageWrapperProps = {
   title: string;
-  children: JSX.Element;
+  children: Array<JSX.Element>;
   onChange(event: React.SyntheticEvent): void;
 };
 
-function AuthPageWrapper({ title, children, onChange }: AuthPageWrapperProps) {
+function AuthPageWrapper({ title, onChange, children }: AuthPageWrapperProps) {
   return (
     <div className={style.containerAuth}>
       <Logo />

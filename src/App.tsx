@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import SignUp from './pages/SignUpPage';
-import Login from './pages/LoginPage/LoginPage';
+import Login from './pages/LoginPage';
 
 import './global/styles/font.scss';
 

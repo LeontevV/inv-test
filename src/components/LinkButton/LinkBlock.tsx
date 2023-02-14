@@ -1,6 +1,6 @@
 import React from 'react';
 
-import style from './LinkButton.module.scss';
+import style from './LinkBlock.module.scss';
 
 interface LinkBlockProps {
   title: string;
