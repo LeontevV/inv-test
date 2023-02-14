@@ -6,12 +6,15 @@ import AuthPageWrapper from '../../components/Auth/AuthPageWrapper';
 
 import style from './SuccessPage.module.scss';
 
+const TWO_MINUTES = 120;
+
 function SuccessPage() {
-  const [seconds, setSeconds] = useState(120);
+  const [seconds, setSeconds] = useState(TWO_MINUTES);
   const [timerActive, setTimerActive] = useState(false);
+  console.log('timer', timerActive);
 
   const onClick = () => {
-    setSeconds(120);
+    setSeconds(TWO_MINUTES);
     setTimerActive(true);
   };
 
@@ -25,9 +28,7 @@ function SuccessPage() {
 
   const timerElement = timerActive ? (
     <div className={style.timer}>Try again after: {seconds} seconds</div>
-  ) : (
-    <div></div>
-  );
+  ) : null;
 
   return (
     <AuthPageWrapper title='Success'>
@@ -35,16 +36,17 @@ function SuccessPage() {
         To complete your registration and get started, you&apos;ll need to verify your email by
         clicking the link in the email we just sent you.
       </text>
-      <Link
+      <button
+        disabled={timerActive}
+        type='button'
         onClick={onClick}
         className={classNames({
-          [style.link]: true,
+          [style.button]: true,
           [style.disable]: timerActive,
         })}
-        to=''
       >
         Resend verification email
-      </Link>
+      </button>
       {timerElement}
       <text className={style.text}>
         Thank you for signing up! Whether you&apos;re ready to streamline invalidity contentions or

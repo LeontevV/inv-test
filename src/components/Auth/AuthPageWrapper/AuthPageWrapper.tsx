@@ -8,7 +8,7 @@ import style from './AuthPageWrapper.module.scss';
 
 type AuthPageWrapperProps = {
   title: string;
-  children: Array<JSX.Element>;
+  children: Array<JSX.Element | null>;
   onChange?(event: React.SyntheticEvent): void;
 };
 
