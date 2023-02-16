@@ -25,6 +25,9 @@ function SignUpPage() {
     };
     setAuthForm(updatedForm);
   };
+  const handleSubmit = () => {
+    console.log('hello');
+  };
 
   return (
     <AuthPageWrapper title='Sign Up'>
@@ -43,7 +46,7 @@ function SignUpPage() {
           }
         />
       </form>
-      <Button>Create account</Button>
+      <Button onClick={handleSubmit}>Create account</Button>
       <LinkBlock title='Login' question={QUESTION} href='/login' />
     </AuthPageWrapper>
   );
