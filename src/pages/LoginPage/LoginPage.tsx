@@ -1,15 +1,14 @@
 import React, { memo, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import axios from '../../api/axios';
 import Button from '../../components/core/Button';
 import Input from '../../components/core/Input';
 import LinkBlock from '../../components/LinkButton';
 import AuthPageWrapper from '../../components/Auth/AuthPageWrapper';
 import { AuthApi } from '../../global/type';
+import requestAuth from '../../utils/requestAuth';
 
 import style from './LoginPage.module.scss';
-import requetsAuth from '../../utils/requestAuth';
 
 const QUESTION = "Don't have an account?";
 const INITIAL_STATE = {
@@ -28,10 +27,9 @@ function Login() {
     };
     setAuthForm(updatedForm);
   };
-  const way = AuthApi.LOGIN;
 
   const handleSubmit = () => {
-    requetsAuth({ way, authForm });
+    requestAuth(AuthApi.LOGIN, authForm);
   };
 
   return (
