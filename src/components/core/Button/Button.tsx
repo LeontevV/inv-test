@@ -2,8 +2,8 @@ import React from 'react';
 
 import style from './Button.module.scss';
 
-function Button({ children }: React.ButtonHTMLAttributes<HTMLButtonElement>) {
-  return <button className={style.button}>{children}</button>;
+function Button({ ...props }: React.HTMLAttributes<HTMLButtonElement>) {
+  return <button type='button' className={style.button} {...props} />;
 }
 
 export default Button;

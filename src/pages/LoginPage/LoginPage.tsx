@@ -5,6 +5,8 @@ import Button from '../../components/core/Button';
 import Input from '../../components/core/Input';
 import LinkBlock from '../../components/LinkButton';
 import AuthPageWrapper from '../../components/Auth/AuthPageWrapper';
+import { AuthApi } from '../../global/type';
+import requestAuth from '../../utils/requestAuth';
 
 import style from './LoginPage.module.scss';
 
@@ -26,15 +28,20 @@ function Login() {
     setAuthForm(updatedForm);
   };
 
+  const handleSubmit = () => {
+    requestAuth(AuthApi.LOGIN, authForm);
+  };
+
   return (
     <AuthPageWrapper title='Login'>
-      <form onChange={handleChange}></form>
-      <Input type='email' title='Email' name='email' value={authForm.email} />
-      <Input type='password' title='Password' name='password' value={authForm.password} />
+      <form onChange={handleChange}>
+        <Input type='email' title='Email' name='email' value={authForm.email} />
+        <Input type='password' title='Password' name='password' value={authForm.password} />
+      </form>
       <Link className={style.link} to='/'>
         Forgot password
       </Link>
-      <Button>Login</Button>
+      <Button onClick={handleSubmit}>Login</Button>
       <LinkBlock title='Sign up' question={QUESTION} href='/' />
     </AuthPageWrapper>
   );
