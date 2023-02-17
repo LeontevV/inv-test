@@ -12,7 +12,11 @@ type AuthFormProps = {
 const requestAuth = async (path: string, authForm: AuthFormProps) => {
   try {
     const response = await instance.post(path, authForm);
-    const accessToken = response?.data;
+    const token = response?.data.token;
+
+    if (token) {
+      localStorage.setItem('token', token);
+    }
   } catch (err) {
     alert(err);
   }

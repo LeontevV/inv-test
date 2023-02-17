@@ -4,6 +4,8 @@ import Input from '../../components/core/Input';
 import Button from '../../components/core/Button';
 import LinkBlock from '../../components/LinkButton';
 import AuthPageWrapper from '../../components/Auth/AuthPageWrapper';
+import requestAuth from '../../utils/requestAuth';
+import { AuthApi } from '../../global/type';
 
 const QUESTION = 'Alredy have an Account?';
 const INITIAL_STATE = {
@@ -26,6 +28,10 @@ function SignUpPage() {
     setAuthForm(updatedForm);
   };
 
+  const handleClick = () => {
+    requestAuth(AuthApi.REGISTRATION, authForm);
+  };
+
   return (
     <AuthPageWrapper title='Sign Up'>
       <form onChange={handleChange}>
@@ -43,7 +49,7 @@ function SignUpPage() {
           }
         />
       </form>
-      <Button>Create account</Button>
+      <Button onClick={handleClick}>Create account</Button>
       <LinkBlock title='Login' question={QUESTION} href='/login' />
     </AuthPageWrapper>
   );

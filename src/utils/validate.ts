@@ -3,7 +3,7 @@ export const EMAIL_REGEXP =
 export const PASSWORD_REGEXP =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
 
-export const NAME_REGEXP = /^[A-Z]{1,10}$/;
+export const NAME_REGEXP = /^[A-Za-z]{1,10}$/;
 
 export const validateEmail = (email: string): boolean => EMAIL_REGEXP.test(email);
 
