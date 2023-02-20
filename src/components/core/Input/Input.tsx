@@ -62,7 +62,7 @@ function Input({ type, onChange, title, name, value, errorMessage = '' }: InputP
         })}
       >
         <input
-          maxLength={16}
+          maxLength={25}
           onChange={onChange}
           id={name}
           className={style.input}

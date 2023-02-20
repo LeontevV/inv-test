@@ -1,11 +1,12 @@
 import React, { memo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Input from '../../components/core/Input';
 import Button from '../../components/core/Button';
 import LinkBlock from '../../components/LinkButton';
 import AuthPageWrapper from '../../components/Auth/AuthPageWrapper';
 import requestAuth from '../../utils/requestAuth';
-import { AuthApi } from '../../global/type';
+import { AuthApi, NavigationPath } from '../../global/type';
 
 const QUESTION = 'Alredy have an Account?';
 const INITIAL_STATE = {
@@ -18,6 +19,7 @@ const INITIAL_STATE = {
 
 function SignUpPage() {
   const [authForm, setAuthForm] = useState(INITIAL_STATE);
+  const navigate = useNavigate();
 
   const handleChange = (event: React.ChangeEvent<HTMLFormElement>) => {
     const { name, value } = event.target;
@@ -28,8 +30,12 @@ function SignUpPage() {
     setAuthForm(updatedForm);
   };
 
+  const navigateByStatus = () => {
+    navigate(NavigationPath.SUCCESS_PAGE);
+  };
+
   const handleClick = () => {
-    requestAuth(AuthApi.REGISTRATION, authForm);
+    requestAuth(navigateByStatus, AuthApi.REGISTRATION, authForm);
   };
 
   return (
