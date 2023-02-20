@@ -7,15 +7,14 @@ import Footer from '../Footer';
 import style from './AuthPageWrapper.module.scss';
 
 type AuthPageWrapperProps = {
-  title?: string;
+  title: string;
   children: Array<React.ReactNode>;
-  isShow: boolean;
 };
 
-function AuthPageWrapper({ title, children, isShow }: AuthPageWrapperProps) {
+function AuthPageWrapper({ title, children }: AuthPageWrapperProps) {
   return (
     <div className={style.containerAuth}>
-      {isShow && <Logo />}
+      <Logo />
       <div className={style.box}>
         <div className={style.authBox}>
           <Label title={title} />

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Footer from '../../components/Auth/Footer';
+import AuthPageWrapper from '../../components/Auth/AuthPageWrapper';
 import Button from '../../components/core/Button';
 import Input from '../../components/core/Input';
 
@@ -9,19 +9,14 @@ function ForgotPasswordPage() {
   const [authForm, setAuthForm] = useState('');
 
   return (
-    <div className={style.container}>
-      <div className={style.box}>
-        <div className={style.block}>
-          <div className={style.title}>Forgot Password</div>
-          <div className={style.text}>
-            Enter your email address and we will send you a link to reset your password.
-          </div>
-          <Input type='email' title='Email' name='email' value={authForm} />
-          <Button>Reset Password</Button>
-        </div>
-        <Footer />
+    <AuthPageWrapper title='Forgot password'>
+      <div className={style.text}>
+        Enter your email address and we will send you a link to reset your password.
       </div>
-    </div>
+      <Input type='email' title='Email' name='email' value={authForm} />
+      <Button>Reset password</Button>
+    </AuthPageWrapper>
   );
 }
+
 export default ForgotPasswordPage;
