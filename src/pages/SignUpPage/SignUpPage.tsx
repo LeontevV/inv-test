@@ -1,11 +1,12 @@
 import React, { memo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Input from '../../components/core/Input';
 import Button from '../../components/core/Button';
 import LinkBlock from '../../components/LinkButton';
 import AuthPageWrapper from '../../components/Auth/AuthPageWrapper';
 import requestAuth from '../../utils/requestAuth';
-import { AuthApi } from '../../global/type';
+import { AuthApi, NavigationPath } from '../../global/type';
 
 const QUESTION = 'Alredy have an Account?';
 const INITIAL_STATE = {
@@ -18,6 +19,7 @@ const INITIAL_STATE = {
 
 function SignUpPage() {
   const [authForm, setAuthForm] = useState(INITIAL_STATE);
+  const navigate = useNavigate();
 
   const handleChange = (event: React.ChangeEvent<HTMLFormElement>) => {
     const { name, value } = event.target;
@@ -28,18 +30,41 @@ function SignUpPage() {
     setAuthForm(updatedForm);
   };
 
+  const navigateByStatus = () => {
+    navigate(NavigationPath.SUCCESS_PAGE);
+  };
+
   const handleClick = () => {
-    requestAuth(AuthApi.REGISTRATION, authForm);
+    requestAuth(navigateByStatus, AuthApi.REGISTRATION, authForm);
   };
 
   return (
     <AuthPageWrapper title='Sign Up'>
       <form onChange={handleChange}>
-        <Input type='text' title='First name' name='firstName' value={authForm.firstName} />
-        <Input type='text' title='Last name' name='lastName' value={authForm.lastName} />
-        <Input type='email' title='Email' name='email' value={authForm.email} />
-        <Input type='password' title='Password' name='password' value={authForm.password} />
         <Input
+          maxLength={25}
+          type='text'
+          title='First name'
+          name='firstName'
+          value={authForm.firstName}
+        />
+        <Input
+          maxLength={25}
+          type='text'
+          title='Last name'
+          name='lastName'
+          value={authForm.lastName}
+        />
+        <Input maxLength={100} type='email' title='Email' name='email' value={authForm.email} />
+        <Input
+          maxLength={25}
+          type='password'
+          title='Password'
+          name='password'
+          value={authForm.password}
+        />
+        <Input
+          maxLength={25}
           type='password'
           title='Confirm password'
           name='confirmPassword'
