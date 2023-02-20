@@ -41,11 +41,30 @@ function SignUpPage() {
   return (
     <AuthPageWrapper title='Sign Up'>
       <form onChange={handleChange}>
-        <Input type='text' title='First name' name='firstName' value={authForm.firstName} />
-        <Input type='text' title='Last name' name='lastName' value={authForm.lastName} />
-        <Input type='email' title='Email' name='email' value={authForm.email} />
-        <Input type='password' title='Password' name='password' value={authForm.password} />
         <Input
+          maxLength={25}
+          type='text'
+          title='First name'
+          name='firstName'
+          value={authForm.firstName}
+        />
+        <Input
+          maxLength={25}
+          type='text'
+          title='Last name'
+          name='lastName'
+          value={authForm.lastName}
+        />
+        <Input maxLength={100} type='email' title='Email' name='email' value={authForm.email} />
+        <Input
+          maxLength={25}
+          type='password'
+          title='Password'
+          name='password'
+          value={authForm.password}
+        />
+        <Input
+          maxLength={25}
           type='password'
           title='Confirm password'
           name='confirmPassword'

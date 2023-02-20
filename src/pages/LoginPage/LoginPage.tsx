@@ -40,8 +40,14 @@ function Login() {
   return (
     <AuthPageWrapper title='Login'>
       <form onChange={handleChange}>
-        <Input type='email' title='Email' name='email' value={authForm.email} />
-        <Input type='password' title='Password' name='password' value={authForm.password} />
+        <Input maxLength={100} type='email' title='Email' name='email' value={authForm.email} />
+        <Input
+          maxLength={25}
+          type='password'
+          title='Password'
+          name='password'
+          value={authForm.password}
+        />
       </form>
       <Link className={style.link} to='/'>
         Forgot password

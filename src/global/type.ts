@@ -7,5 +7,5 @@ export enum NavigationPath {
   SIGN_UP_PAGE = '/',
   LOGIN_PAGE = '/login',
   SUCCESS_PAGE = '/success',
-  FORGOTPASSWORD_PAGE = '/forgot-password',
+  FORGOT_PASSWORD_PAGE = '/forgot-password',
 }
