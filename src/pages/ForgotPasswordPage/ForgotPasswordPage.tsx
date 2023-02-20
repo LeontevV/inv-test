@@ -8,16 +8,12 @@ import requestAuth from '../../utils/requestAuth';
 
 import style from './ForgotPasswordPage.module.scss';
 
-const INITIAL_STATE = {
-  email: '',
-};
-
 function ForgotPasswordPage() {
-  const [authForm, setAuthForm] = useState(INITIAL_STATE);
+  const [authForm, setAuthForm] = useState('');
   const navigate = useNavigate();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setAuthForm({ email: event.target.value });
+    setAuthForm(event.target.value);
   };
 
   const navigateByStatus = () => {
@@ -25,7 +21,7 @@ function ForgotPasswordPage() {
   };
 
   const handleClick = () => {
-    requestAuth(navigateByStatus, AuthApi.FORGOT_PASSWORD, authForm);
+    requestAuth(navigateByStatus, AuthApi.FORGOT_PASSWORD, { email: authForm });
   };
 
   return (
@@ -33,13 +29,7 @@ function ForgotPasswordPage() {
       <div className={style.text}>
         Enter your email address and we will send you a link to reset your password.
       </div>
-      <Input
-        onChange={handleChange}
-        type='email'
-        title='Email'
-        name='email'
-        value={authForm.email}
-      />
+      <Input onChange={handleChange} type='email' title='Email' name='email' value={authForm} />
       <Button onClick={handleClick}>Reset password</Button>
     </AuthPageWrapper>
   );
