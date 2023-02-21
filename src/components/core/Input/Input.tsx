@@ -35,7 +35,7 @@ function validate({ value, type, name }: { value: string; type?: string; name?: 
   return '';
 }
 
-function Input({ type, onChange, title, name, value, errorMessage = '' }: InputProps) {
+function Input({ maxLength, type, onChange, title, name, value, errorMessage = '' }: InputProps) {
   const [error, setError] = useState(errorMessage);
   const [inputType, setInputType] = useState(type);
 
@@ -62,7 +62,7 @@ function Input({ type, onChange, title, name, value, errorMessage = '' }: InputP
         })}
       >
         <input
-          maxLength={16}
+          maxLength={maxLength}
           onChange={onChange}
           id={name}
           className={style.input}

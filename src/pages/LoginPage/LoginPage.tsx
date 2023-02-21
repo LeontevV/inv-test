@@ -1,11 +1,11 @@
 import React, { memo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import Button from '../../components/core/Button';
 import Input from '../../components/core/Input';
 import LinkBlock from '../../components/LinkButton';
 import AuthPageWrapper from '../../components/Auth/AuthPageWrapper';
-import { AuthApi } from '../../global/type';
+import { AuthApi, NavigationPath } from '../../global/type';
 import requestAuth from '../../utils/requestAuth';
 
 import style from './LoginPage.module.scss';
@@ -17,7 +17,9 @@ const INITIAL_STATE = {
 };
 
 function Login() {
+  const [data, setData] = useState();
   const [authForm, setAuthForm] = useState(INITIAL_STATE);
+  const navigate = useNavigate();
 
   const handleChange = (event: React.ChangeEvent<HTMLFormElement>) => {
     const { name, value } = event.target;
@@ -28,15 +30,30 @@ function Login() {
     setAuthForm(updatedForm);
   };
 
+  const navigateByStatus = () => {
+    navigate(NavigationPath.SUCCESS_PAGE);
+  };
+
   const handleSubmit = () => {
-    requestAuth(AuthApi.LOGIN, authForm);
+    const response = requestAuth(navigateByStatus, AuthApi.LOGIN, authForm);
+
+    response.then((res) => {
+      const { data } = res;
+      console.log(data);
+    });
   };
 
   return (
     <AuthPageWrapper title='Login'>
       <form onChange={handleChange}>
-        <Input type='email' title='Email' name='email' value={authForm.email} />
-        <Input type='password' title='Password' name='password' value={authForm.password} />
+        <Input maxLength={100} type='email' title='Email' name='email' value={authForm.email} />
+        <Input
+          maxLength={25}
+          type='password'
+          title='Password'
+          name='password'
+          value={authForm.password}
+        />
       </form>
       <Link className={style.link} to='/'>
         Forgot password
