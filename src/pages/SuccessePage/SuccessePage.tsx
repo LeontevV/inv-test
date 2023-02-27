@@ -1,8 +1,6 @@
 import React, { memo, useState, useEffect } from 'react';
 import classNames from 'classnames';
 
-import AuthPageWrapper from '../../components/Auth/AuthPageWrapper';
-
 import style from './SuccessPage.module.scss';
 
 const TWO_MINUTES = 120;
@@ -25,7 +23,7 @@ function SuccessPage() {
   }, [seconds, timerActive]);
 
   return (
-    <AuthPageWrapper title='Success'>
+    <>
       <text className={style.text}>
         To complete your registration and get started, you&apos;ll need to verify your email by
         clicking the link in the email we just sent you.
@@ -47,7 +45,7 @@ function SuccessPage() {
         just want to check out the demo, we&apos;re happy to help in any way we can. Please
         don&apos;t hesitate to get in touch.
       </text>
-    </AuthPageWrapper>
+    </>
   );
 }
 

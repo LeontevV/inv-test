@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import Button from '../../components/core/Button';
 import Input from '../../components/core/Input';
 import LinkBlock from '../../components/LinkButton';
-import AuthPageWrapper from '../../components/Auth/AuthPageWrapper';
 import { AuthApi, NavigationPath } from '../../global/type';
 import requestAuth from '../../utils/requestAuth';
 
@@ -17,6 +16,7 @@ const INITIAL_STATE = {
 };
 
 function Login() {
+  const [data, setData] = useState();
   const [authForm, setAuthForm] = useState(INITIAL_STATE);
   const navigate = useNavigate();
 
@@ -34,11 +34,11 @@ function Login() {
   };
 
   const handleSubmit = () => {
-    requestAuth(navigateByStatus, AuthApi.LOGIN, authForm);
+    const response = requestAuth(navigateByStatus, AuthApi.LOGIN, authForm);
   };
 
   return (
-    <AuthPageWrapper title='Login'>
+    <>
       <form onChange={handleChange}>
         <Input maxLength={100} type='email' title='Email' name='email' value={authForm.email} />
         <Input
@@ -54,7 +54,7 @@ function Login() {
       </Link>
       <Button onClick={handleSubmit}>Login</Button>
       <LinkBlock title='Sign up' question={QUESTION} href='/' />
-    </AuthPageWrapper>
+    </>
   );
 }
 

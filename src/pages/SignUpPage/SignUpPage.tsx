@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import Input from '../../components/core/Input';
 import Button from '../../components/core/Button';
 import LinkBlock from '../../components/LinkButton';
-import AuthPageWrapper from '../../components/Auth/AuthPageWrapper';
 import requestAuth from '../../utils/requestAuth';
 import { AuthApi, NavigationPath } from '../../global/type';
 
@@ -39,7 +38,7 @@ function SignUpPage() {
   };
 
   return (
-    <AuthPageWrapper title='Sign Up'>
+    <>
       <form onChange={handleChange}>
         <Input
           maxLength={25}
@@ -76,7 +75,7 @@ function SignUpPage() {
       </form>
       <Button onClick={handleClick}>Create account</Button>
       <LinkBlock title='Login' question={QUESTION} href='/login' />
-    </AuthPageWrapper>
+    </>
   );
 }
 

@@ -6,10 +6,9 @@ import Footer from '../Footer';
 
 import style from './AuthPageWrapper.module.scss';
 
-type AuthPageWrapperProps = {
+interface AuthPageWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
-  children: Array<React.ReactNode>;
-};
+}
 
 function AuthPageWrapper({ title, children }: AuthPageWrapperProps) {
   return (
