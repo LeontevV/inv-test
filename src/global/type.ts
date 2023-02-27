@@ -14,5 +14,5 @@ export enum Paths {
   login = 'login',
   signUp = 'sign-up',
   success = 'success',
-  forgot_password = 'forgot-password',
+  forgotPassword = 'forgot-password',
 }
