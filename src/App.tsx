@@ -1,24 +1,47 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+import Auth from './pages/AuthPage';
 import SignUp from './pages/SignUpPage';
 import Success from './pages/SuccessePage';
 import Login from './pages/LoginPage';
 import ForgotPassword from './pages/ForgotPasswordPage';
 
 import './global/styles/font.scss';
+import { Paths } from './global/type';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <></>,
+    children: [],
+  },
+  {
+    path: '/auth',
+    element: <Auth />,
+    children: [
+      {
+        path: Paths.login,
+        element: <Login />,
+      },
+      {
+        path: Paths.success,
+        element: <Success />,
+      },
+      {
+        path: Paths.forgotPassword,
+        element: <ForgotPassword />,
+      },
+      {
+        path: Paths.signUp,
+        element: <SignUp />,
+      },
+    ],
+  },
+]);
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<SignUp />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/success' element={<Success />} />
-        <Route path='/forgot-password' element={<ForgotPassword />} />
-      </Routes>
-    </BrowserRouter>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

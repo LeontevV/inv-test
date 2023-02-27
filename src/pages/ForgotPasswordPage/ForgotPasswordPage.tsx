@@ -25,7 +25,7 @@ function ForgotPasswordPage() {
   };
 
   return (
-    <AuthPageWrapper title='Forgot password'>
+    <>
       <div className={style.text}>
         Enter your email address and we will send you a link to reset your password.
       </div>
@@ -38,7 +38,7 @@ function ForgotPasswordPage() {
         value={email}
       />
       <Button onClick={handleClick}>Reset password</Button>
-    </AuthPageWrapper>
+    </>
   );
 }
 
