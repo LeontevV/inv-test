@@ -1,4 +1,5 @@
 import React from 'react';
+
 import instance from '../api/axios';
 
 type AuthFormProps = {

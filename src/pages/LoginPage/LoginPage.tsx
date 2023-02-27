@@ -17,7 +17,6 @@ const INITIAL_STATE = {
 };
 
 function Login() {
-  const [data, setData] = useState();
   const [authForm, setAuthForm] = useState(INITIAL_STATE);
   const navigate = useNavigate();
 
@@ -35,12 +34,7 @@ function Login() {
   };
 
   const handleSubmit = () => {
-    const response = requestAuth(navigateByStatus, AuthApi.LOGIN, authForm);
-
-    response.then((res) => {
-      const { data } = res;
-      console.log(data);
-    });
+    requestAuth(navigateByStatus, AuthApi.LOGIN, authForm);
   };
 
   return (
