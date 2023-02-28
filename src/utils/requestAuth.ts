@@ -18,6 +18,7 @@ const requestAuth = async (navigateStatus: () => void, path: string, authForm: A
 
     if (token) {
       localStorage.setItem('token', token);
+      console.log('token', localStorage.getItem('token'));
     }
     if (status === 201) {
       navigateStatus();

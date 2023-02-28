@@ -4,15 +4,36 @@
   justify-content: space-between;
   padding: 10px 31px;
 }
-.boxLeft {
-  width: 20%;
+.box {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  color: #828282;
 }
-.boxRight {
-  width: 20%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.item:hover {
+  color: #333333;
+}
+.item {
+  padding-right: 30px;
+}
+.user {
+  font-family: 'Nunito Sans Bold';
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 19px;
+  color: #333333;
+  padding-right: 13px;
+  padding-left: 10px;
+}
+.image {
+  width: 30px;
+  height: 30px;
+  background-color: #828282;
+  border-radius: 50%;
 }

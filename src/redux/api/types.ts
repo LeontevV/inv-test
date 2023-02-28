@@ -1,11 +1,9 @@
 export interface IUser {
   email: string;
-  first_name: string;
-  last_name: string;
+  firstName: string;
+  lastName: string;
   role: string;
   id: string;
-  createdAt: Date;
-  updatedAt: Date;
 }
 
 export interface IGenericResponse {
