@@ -1,4 +1,5 @@
 import React from 'react';
+
 import instance from '../api/axios';
 
 type AuthFormProps = {
@@ -21,6 +22,8 @@ const requestAuth = async (navigateStatus: () => void, path: string, authForm: A
     if (status === 201) {
       navigateStatus();
     }
+
+    return response;
   } catch (err) {
     alert(err);
   }

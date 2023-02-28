@@ -30,7 +30,7 @@ function Login() {
   };
 
   const navigateByStatus = () => {
-    navigate(NavigationPath.SUCCESS_PAGE);
+    navigate('/');
   };
 
   const handleSubmit = () => {
