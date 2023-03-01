@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import Input from '../../components/core/Input';
 import Button from '../../components/core/Button';
 import LinkBlock from '../../components/LinkButton';
-import requestAuth from '../../utils/requestAuth';
-import { AuthApi, NavigationPath } from '../../global/type';
+import { AuthFormProps, NavigationPath } from '../../global/type';
+import { useRegisterUserMutation } from '../../redux/api/authApi';
 
 const QUESTION = 'Alredy have an Account?';
-const INITIAL_STATE = {
+const INITIAL_STATE: AuthFormProps = {
   firstName: '',
   lastName: '',
   email: '',
@@ -19,6 +19,7 @@ const INITIAL_STATE = {
 function SignUpPage() {
   const [authForm, setAuthForm] = useState(INITIAL_STATE);
   const navigate = useNavigate();
+  const [registerUser] = useRegisterUserMutation();
 
   const handleChange = (event: React.ChangeEvent<HTMLFormElement>) => {
     const { name, value } = event.target;
@@ -30,11 +31,17 @@ function SignUpPage() {
   };
 
   const navigateByStatus = () => {
-    navigate(NavigationPath.SUCCESS_PAGE);
+    navigate(NavigationPath.LOGIN_PAGE);
   };
 
-  const handleClick = () => {
-    requestAuth(navigateByStatus, AuthApi.REGISTRATION, authForm);
+  const handleClick = async () => {
+    const { error } = await registerUser(authForm);
+
+    if (!error) {
+      navigateByStatus();
+    } else {
+      alert(error.data.message);
+    }
   };
 
   return (

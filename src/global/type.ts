@@ -5,14 +5,21 @@ export enum AuthApi {
   GET_USER = '/user',
 }
 export enum NavigationPath {
-  SIGN_UP_PAGE = '/sign-up',
-  LOGIN_PAGE = '/login',
-  SUCCESS_PAGE = '/success',
-  FORGOT_PASSWORD_PAGE = '/forgot-password',
+  SIGN_UP_PAGE = '/auth/sign-up',
+  LOGIN_PAGE = '/auth/login',
+  SUCCESS_PAGE = '/auth/success',
+  FORGOT_PASSWORD_PAGE = '/auth/forgot-password',
 }
 export enum Paths {
   login = 'login',
   signUp = 'sign-up',
   success = 'success',
   forgotPassword = 'forgot-password',
+}
+export interface AuthFormProps {
+  email: string;
+  firstName?: string;
+  lastName?: string;
+  password: string;
+  confirmPassword?: string;
 }

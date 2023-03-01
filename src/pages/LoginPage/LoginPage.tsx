@@ -4,20 +4,21 @@ import { Link, useNavigate } from 'react-router-dom';
 import Button from '../../components/core/Button';
 import Input from '../../components/core/Input';
 import LinkBlock from '../../components/LinkButton';
-import { AuthApi, NavigationPath } from '../../global/type';
-import requestAuth from '../../utils/requestAuth';
+import { AuthFormProps } from '../../global/type';
+import { useLoginUserMutation } from '../../redux/api/authApi';
 
 import style from './LoginPage.module.scss';
 
 const QUESTION = "Don't have an account?";
-const INITIAL_STATE = {
+const INITIAL_STATE: AuthFormProps = {
   email: '',
   password: '',
 };
 
 function Login() {
-  const [data, setData] = useState();
   const [authForm, setAuthForm] = useState(INITIAL_STATE);
+  const [loginUser] = useLoginUserMutation();
+
   const navigate = useNavigate();
 
   const handleChange = (event: React.ChangeEvent<HTMLFormElement>) => {
@@ -33,8 +34,13 @@ function Login() {
     navigate('/');
   };
 
-  const handleSubmit = () => {
-    const response = requestAuth(navigateByStatus, AuthApi.LOGIN, authForm);
+  const handleSubmit = async () => {
+    const login = await loginUser(authForm);
+
+    if ('data' in login) {
+      localStorage.setItem('token', login.data);
+      navigateByStatus();
+    }
   };
 
   return (

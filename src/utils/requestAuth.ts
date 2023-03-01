@@ -1,14 +1,7 @@
 import React from 'react';
 
 import instance from '../api/axios';
-
-type AuthFormProps = {
-  email: string;
-  firstName?: string;
-  lastName?: string;
-  password?: string;
-  confirmPassword?: string;
-};
+import { AuthFormProps } from '../global/type';
 
 const requestAuth = async (navigateStatus: () => void, path: string, authForm: AuthFormProps) => {
   try {
@@ -18,7 +11,6 @@ const requestAuth = async (navigateStatus: () => void, path: string, authForm: A
 
     if (token) {
       localStorage.setItem('token', token);
-      console.log('token', localStorage.getItem('token'));
     }
     if (status === 201) {
       navigateStatus();

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
 import Header from '../../components/Header';
 
-function StartPage() {
+function HomePage() {
   return (
     <div>
       <Header />
@@ -9,4 +10,4 @@ function StartPage() {
   );
 }
 
-export default StartPage;
+export default HomePage;

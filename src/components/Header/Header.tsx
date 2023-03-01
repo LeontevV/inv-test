@@ -1,26 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import instance from '../../api/axios';
 import { IUser } from '../../redux/api/types';
 import { setUser } from '../../redux/reducers/userSlice';
+import { useGetUserMutation } from '../../redux/api/userApi';
 
 import style from './Header.module.scss';
+import { useAppDispatch } from '../../redux/store';
 
 function Header() {
   const [userInfo, setUserInfo] = useState<IUser | undefined>();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
+  const [getUser] = useGetUserMutation();
 
-  const responseUser = () => {
-    const requestUser = async () => {
-      const response = await instance.get('/user');
-      setUserInfo(response.data);
-      dispatch(setUser(response.data));
+  useEffect(() => {
+    const response = async () => {
+      const { data } = await getUser();
+      setUserInfo(data);
+      dispatch(setUser(data));
     };
-    requestUser();
-  };
-
-  useEffect(() => responseUser(), []);
-  console.log('userInfo', userInfo);
+    response();
+  }, []);
 
   return (
     <div className={style.container}>
