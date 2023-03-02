@@ -6,7 +6,7 @@ import SignUp from './pages/SignUpPage';
 import Success from './pages/SuccessePage';
 import Login from './pages/LoginPage';
 import ForgotPassword from './pages/ForgotPasswordPage';
-import Start from './pages/HomePage';
+import Home from './pages/HomePage';
 
 import './global/styles/font.scss';
 import { Paths } from './global/type';
@@ -14,7 +14,7 @@ import { Paths } from './global/type';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Start />,
+    element: <Home />,
     children: [],
   },
   {

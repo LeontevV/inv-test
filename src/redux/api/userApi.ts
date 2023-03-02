@@ -1,9 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import type { IUser } from './types';
 
-const baseUrl = import.meta.env.VITE_BASE_URL;
-export const UserApi = createApi({
-  reducerPath: 'UserApi',
+export const userApi = createApi({
+  reducerPath: 'userApi',
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_BASE_URL,
     prepareHeaders: (headers) => {
@@ -16,10 +15,10 @@ export const UserApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    getUser: builder.mutation<IUser, unknown>({
+    user: builder.query<IUser, void>({
       query: () => {
         return {
-          url: baseUrl + '/user',
+          url: '/user',
           method: 'GET',
         };
       },
@@ -27,4 +26,4 @@ export const UserApi = createApi({
   }),
 });
 
-export const { useGetUserMutation } = UserApi;
+export const { useUserQuery } = userApi;

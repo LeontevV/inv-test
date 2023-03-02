@@ -39,6 +39,7 @@ function Login() {
 
     if ('data' in login) {
       localStorage.setItem('token', login.data);
+
       navigateByStatus();
     }
   };

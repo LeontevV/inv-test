@@ -35,12 +35,14 @@ function SignUpPage() {
   };
 
   const handleClick = async () => {
-    const { error } = await registerUser(authForm);
+    const data = await registerUser(authForm);
 
-    if (!error) {
-      navigateByStatus();
+    if ('error' in data) {
+      if ('data' in data.error) {
+        alert(data.error.data);
+      }
     } else {
-      alert(error.data.message);
+      navigateByStatus();
     }
   };
 
